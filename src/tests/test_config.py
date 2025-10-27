@@ -36,9 +36,10 @@ def test_settings_update():
 
 def test_config_shorthands():
     """Test config shorthand processing."""
-    kwargs = {"minimal": True}
+    kwargs = {"samples": None}
     shorthand_args, _ = Config.shorthands(kwargs, split=True)
-    assert "minimal" in shorthand_args
+    assert "samples" in shorthand_args
+    assert shorthand_args["samples"] == {"head": 0, "tail": 0, "random": 0}
 
 
 def test_config_arg_groups():
