@@ -45,7 +45,10 @@ def test_numeric_alerts():
         "chi_squared": {"pvalue": 0.9995},
     }
     alerts = numeric_alerts(config, summary)
-    assert len(alerts) == 3  # skewness, infinite, zeros
+    assert len(alerts) == 4  # skewness, infinite, zeros, uniform
+    alert_types = {alert.alert_type for alert in alerts}
+    expected_types = {AlertType.SKEWED, AlertType.INFINITE, AlertType.ZEROS, AlertType.UNIFORM}
+    assert alert_types == expected_types
 
 
 def test_categorical_alerts():
