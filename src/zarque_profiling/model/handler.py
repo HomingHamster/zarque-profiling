@@ -12,17 +12,10 @@ def compose(functions: Sequence[Callable]) -> Callable:
     :return: combined functions, e.g. [f(x), g(x)] -> g(f(x))
     """
 
-    def func(f: Callable, g: Callable) -> Callable:
-        def func2(*x) -> Any:
-            res = g(*x)
-            if type(res) == bool:
-                return f(*x)
-            else:
-                return f(*res)
+    def compose2(f: Callable, g: Callable) -> Callable:
+        return lambda *x: g(f(*x))
 
-        return func2
-
-    return reduce(func, reversed(functions), lambda *x: x)
+    return reduce(compose2, functions, lambda *x: x[0] if x else None)
 
 
 class Handler:
