@@ -37,4 +37,5 @@ def test_cat_frequency_plot():
     """Test categorical frequency plot generation."""
     config = Settings()
     data = pd.Series([10, 20, 30], index=["cat1", "cat2", "cat3"])
+    result = cat_frequency_plot(config, data)
     assert isinstance(result, str)

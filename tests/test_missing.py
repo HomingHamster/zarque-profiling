@@ -20,7 +20,8 @@ def test_get_missing_diagram():
     """Test getting missing diagrams."""
     config = Settings()
     df = pd.DataFrame({
-        "A": [1, 2, None, 4, 5]}
+        "A": [1, 2, None, 4, 5]
+    })
     settings = {"name": "bar", "caption": "test", "function": lambda x, y: "test"}
     # Note: This is a placeholder test since the actual implementation is not provided
     pass

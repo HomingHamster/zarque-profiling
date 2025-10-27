@@ -21,7 +21,7 @@ def test_handler_initialization():
     from visions import VisionsTypeset
     
     typeset = VisionsTypeset([])
-    mapping = {"type1": [lambda x, y: (x, y)]})
+    mapping = {"type1": [lambda x, y: (x, y)]}
     handler = Handler(mapping, typeset)
     assert handler.mapping == mapping
     assert handler.typeset == typeset
