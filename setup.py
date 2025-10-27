@@ -28,7 +28,7 @@ setup(
     url="https://github.com/crescendo-medix/zarque-profiling",
     license="MIT",
     description="Data profiling tools for Big Data",
-    python_requires=">=3.12, <=3.13",
+    python_requires=">=3.12",
     install_requires=requirements,
     extras_require={
         "notebook": [
