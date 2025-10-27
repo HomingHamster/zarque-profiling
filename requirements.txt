@@ -6,7 +6,7 @@ PyYAML>=5.0.0, <6.1
 jinja2>=2.11.1, <3.2
 visions[type_image_path]
 numpy
-polars>=0.16.11, <=0.17.1
+polars
 minify_html
 phik>=0.11.1,<0.13
 requests>=2.24.0, <2.29
