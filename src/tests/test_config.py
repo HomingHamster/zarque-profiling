@@ -46,4 +46,4 @@ def test_config_arg_groups():
     """Test config argument groups."""
     kwargs = Config.get_arg_groups("sensitive")
     assert "samples" in kwargs
-    assert kwargs["samples"] is None
+    assert kwargs["samples"] == {"head": 0, "tail": 0, "random": 0}
