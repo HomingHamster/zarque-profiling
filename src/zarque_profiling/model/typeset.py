@@ -1,4 +1,4 @@
-import imghdr
+import filetype
 import os
 import warnings
 from functools import partial, wraps
@@ -196,7 +196,7 @@ def typeset_types(config: Settings) -> Set[visions.VisionsBaseType]:
         @multimethod
         @series_handle_nulls
         def contains_op(series: pd.Series, state: dict) -> bool:
-            return all(imghdr.what(p) for p in series)
+            return all(filetype.is_image(p) for p in series)
 
     class TimeSeries(visions.VisionsBaseType):
         @staticmethod

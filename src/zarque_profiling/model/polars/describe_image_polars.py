@@ -1,4 +1,4 @@
-import imghdr
+import filetype
 from functools import partial
 from pathlib import Path
 from typing import Optional, Tuple, Union
@@ -12,7 +12,6 @@ from zarque_profiling.model.summary_algorithms import (
     describe_image_1d,
     named_aggregate_summary,
 )
-from zarque_profiling.utils.imghdr_patch import *  # noqa: F401,F403
 
 
 def open_image(path: Path) -> Optional[Image.Image]:
@@ -119,7 +118,7 @@ def extract_exif(image: Image) -> dict:
 
 
 def path_is_image(p: Path) -> bool:
-    return imghdr.what(p) is not None
+    return filetype.is_image(p) is not None
 
 
 def count_duplicate_hashes(image_descriptions: dict) -> int:

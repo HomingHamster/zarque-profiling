@@ -397,9 +397,9 @@ class ProfileReport(SerializeReport, ExpectationsReport):
             )
 
             if self.config.html.minify_html:
-                from htmlmin.main import minify
+                from minify_html import minify
 
-                html = minify(html, remove_all_empty_space=True, remove_comments=True)
+                html = minify(html, minify_js=True, remove_processing_instructions=True)
             pbar.update()
         return html
 
